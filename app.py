@@ -1,18 +1,26 @@
-from flask import Flask
+from flask import Flask, render_template
+
+
 
 app = Flask(__name__)
 
 
-@app.route("/hello")
-def say_hello(name):		# Function
-    return f"Hello, {name}!"
 
-@app.route('/<int:num1>/<string:operation>/<int:num2>')		# Route	
-def calc(num1, operation, num2):
-    if operation == "add":
-        result = num1 + num2
-        return f'{num1} + {num2} = {result}'
+@app.route('/basic')
+def basic():
+
+    return render_template('basic.html')
+
+@app.route('/greet/<name>')
+def greet(name):
+
+    return render_template('greet.html', name=name)
+
+@app.route('/Inventory')
+def Inventroy():
+    inventory_items = ['apple', 'orange', 'lime']
+    return render_template('Inventory.html', inventory=inventory_items)
+    
 if __name__ == '__main__':
 
     app.run(debug=True)
-
