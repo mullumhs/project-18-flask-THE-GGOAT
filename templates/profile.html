@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{username}}'s Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Welcome {{username}}!</h1>
+    {% if username == 'linc' %}
+    <img src="{{url_for('static', filename='Linc.jpg') }}" alt="Linc_pic">
+    {% elif username == 'kane' %}
+    <img src="{{url_for('static', filename='bart.jpg')}}" alt="kane_more like lame">
+    {% else %}
+    <img src="{{url_for('static', filename='pfp.jpg')}}" alt="default">
+    {% endif %}
+</body>
+</html>
